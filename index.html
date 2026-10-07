@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Som Shorts 🤩 Editing</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #111;
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      padding: 25px 15px;
+      background: linear-gradient(135deg, #ff0066, #7b00ff);
+    }
+
+    header h1 {
+      font-size: 30px;
+    }
+
+    header p {
+      margin-top: 8px;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 25px 15px;
+    }
+
+    .card {
+      background: #1e1e1e;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    }
+
+    .card h2 {
+      margin-bottom: 12px;
+      color: #ff4da6;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 10px;
+      background: #333;
+      color: white;
+      font-size: 15px;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    button {
+      border: none;
+      padding: 13px 20px;
+      margin: 7px;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #ff0066, #7b00ff);
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .tool {
+      background: #292929;
+      padding: 18px 10px;
+      border-radius: 12px;
+    }
+
+    footer {
+      padding: 25px;
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🎬 Som Shorts 🤩 Editing</h1>
+    <p>Create • Edit • Share Your Shorts</p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>✨ Welcome</h2>
+      <p>
+        Welcome to Som Shorts 🤩 Editing!
+        Your simple place for Shorts editing ideas and tools.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🛠️ Editing Tools</h2>
+
+      <div class="tools">
+        <div class="tool">✂️ Video Cut</div>
+        <div class="tool">🎵 Add Music</div>
+        <div class="tool">📝 Add Text</div>
+        <div class="tool">✨ Effects</div>
+        <div class="tool">🎨 Filters</div>
+        <div class="tool">📱 Shorts Ideas</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📝 Create Your Idea</h2>
+
+      <input type="text" id="title" placeholder="Enter video title">
+
+      <textarea id="idea" placeholder="Write your Shorts idea here..."></textarea>
+
+      <button onclick="saveIdea()">💾 Save Idea</button>
+
+      <p id="result"></p>
+    </div>
+
+    <div class="card">
+      <h2>📢 About Som Shorts</h2>
+      <p>
+        Som Shorts 🤩 is a creative Shorts editing project.
+        Keep creating and keep improving! 🚀
+      </p>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Som Shorts 🤩 Editing
+  </footer>
+
+  <script>
+    function saveIdea() {
+      let title = document.getElementById("title").value;
+      let idea = document.getElementById("idea").value;
+      let result = document.getElementById("result");
+
+      if (title === "" || idea === "") {
+        result.innerHTML = "⚠️ Please enter a title and idea.";
+        return;
+      }
+
+      localStorage.setItem("shortsTitle", title);
+      localStorage.setItem("shortsIdea", idea);
+
+      result.innerHTML = "✅ Your Shorts idea has been saved!";
+    }
+  </script>
+
+</body>
+  </html>
